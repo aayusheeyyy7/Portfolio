@@ -1,657 +1,186 @@
-/* =========================================
-   AAYUSH SHRESTHA PORTFOLIO
-
-   MAIN.JS
-
-   ANIMATIONS + INTERACTIONS
-
-========================================= */
-
-
-
-// ========================================
-// TYPING EFFECT
-// ========================================
-
-
-const words = [
-
-"Frontend Developer",
-
-"Web Designer",
-
-"JavaScript Learner",
-
-"BCA Student"
-
-];
-
-
-
-let wordIndex = 0;
-
-let charIndex = 0;
-
-let deleting = false;
-
-
-
-const typingText =
-document.querySelector(".hero h2");
-
-
-
-
-
-function typingAnimation(){
-
-
-let current =
-words[wordIndex];
-
-
-
-if(!deleting){
-
-
-typingText.innerHTML =
-
-current.substring(
-0,
-charIndex++
-)
-+
-"<br>";
-
-
-if(charIndex > current.length){
-
-deleting=true;
-
-
-setTimeout(
-typingAnimation,
-1000
-);
-
-
-return;
-
-}
-
-
-
-}
-else{
-
-
-typingText.innerHTML =
-
-current.substring(
-0,
-charIndex--
-)
-+
-"<br>";
-
-
-
-if(charIndex===0){
-
-
-deleting=false;
-
-
-wordIndex++;
-
-
-
-if(wordIndex>=words.length){
-
-wordIndex=0;
-
-}
-
-
-}
-
-
-
-}
-
-
-
-setTimeout(
-
-typingAnimation,
-
-deleting ? 40 : 100
-
-);
-
-
-}
-
-
-
-typingAnimation();
-
-
-
-
-
-
-
-
-
-// ========================================
-// SCROLL REVEAL
-// ========================================
-
-
-const revealElements =
-
-document.querySelectorAll(
-
-"section, .skill-card, .project-card, .about-box"
-
-);
-
-
-
-function revealOnScroll(){
-
-
-
-revealElements.forEach(
-
-element=>{
-
-
-let position =
-
-element.getBoundingClientRect()
-.top;
-
-
-
-let screenHeight =
-
-window.innerHeight;
-
-
-
-if(position < screenHeight-100){
-
-
-
-element.classList.add(
-"show"
-);
-
-
-
-}
-
-
-
-}
-
-);
-
-
-
-}
-
-
-
-window.addEventListener(
-
-"scroll",
-
-revealOnScroll
-
-);
-
-
-
-revealOnScroll();
-
-
-
-
-
-
-
-
-
-// ========================================
-// MOUSE LIGHT EFFECT
-// ========================================
-
-
-
-const glow =
-document.createElement(
-"div"
-);
-
-
-
-glow.className =
-"mouse-glow";
-
-
-
-document.body.appendChild(
-glow
-);
-
-
-
-
-
-document.addEventListener(
-
-"mousemove",
-
-(e)=>{
-
-
-glow.style.left =
-e.clientX+"px";
-
-
-glow.style.top =
-e.clientY+"px";
-
-
-}
-
-);
-
-
-
-
-
-
-
-
-
-// ========================================
-// NAVBAR CHANGE ON SCROLL
-// ========================================
-
-
-const header =
-document.querySelector(
-"header"
-);
-
-
-
-window.addEventListener(
-
-"scroll",
-
-()=>{
-
-
-if(window.scrollY>50){
-
-
-header.style.background=
-
-"rgba(0,0,0,.85)";
-
-
-}
-
-else{
-
-
-header.style.background=
-
-"rgba(5,5,5,.55)";
-
-
-}
-
-
-
-}
-
-);
-
-
-
-
-
-
-
-
-
-// ========================================
-// PROJECT CARD TILT EFFECT
-// ========================================
-
-
-const cards =
-document.querySelectorAll(
-
-".project-card, .skill-card"
-
-);
-
-
-
-
-cards.forEach(
-
-card=>{
-
-
-card.addEventListener(
-
-"mousemove",
-
-(e)=>{
-
-
-const rect =
-card.getBoundingClientRect();
-
-
-
-const x =
-e.clientX -
-rect.left;
-
-
-
-const y =
-e.clientY -
-rect.top;
-
-
-
-const rotateX =
-
-(y - rect.height/2)/15;
-
-
-
-const rotateY =
-
-(rect.width/2-x)/15;
-
-
-
-card.style.transform =
-
-`
-perspective(800px)
-rotateX(${rotateX}deg)
-rotateY(${rotateY}deg)
-scale(1.05)
-`;
-
-
-
-}
-
-
-
-);
-
-
-
-
-
-card.addEventListener(
-
-"mouseleave",
-
-()=>{
-
-
-card.style.transform="";
-
-
-}
-
-
-
-);
-
-
-
-}
-
-);
-
-
-
-
-
-
-
-
-
-// ========================================
-// ACTIVE LINK
-// ========================================
-
-
-
-const sections =
-document.querySelectorAll(
-"section"
-);
-
-
-
-const navLinks =
-document.querySelectorAll(
-"nav a"
-);
-
-
-
-window.addEventListener(
-
-"scroll",
-
-()=>{
-
-
-let current="";
-
-
-
-sections.forEach(
-
-section=>{
-
-
-const sectionTop =
-section.offsetTop-200;
-
-
-
-if(
-scrollY>=sectionTop
-){
-
-current=
-section.id;
-
-}
-
-
-
-}
-
-
-
-);
-
-
-
-navLinks.forEach(
-
-link=>{
-
-
-link.style.color="";
-
-
-
-if(
-
-link.href.includes(current)
-
-){
-
-
-link.style.color=
-"#00e5ff";
-
-
-}
-
-
-
-}
-
-
-
-);
-
-
-
-}
-
-);
-
-
-
-
-
-
-
-
-
-// ========================================
-// ADD CSS ANIMATION CLASSES
-// ========================================
-
-
-
-const style =
-document.createElement(
-"style"
-);
-
-
-
-style.innerHTML = `
-
-
-
-section,
-.skill-card,
-.project-card,
-.about-box{
-
-opacity:0;
-
-transform:
-translateY(50px);
-
-transition:
-1s ease;
-
-}
-
-
-
-.show{
-
-opacity:1;
-
-transform:
-translateY(0);
-
-}
-
-
-
-.mouse-glow{
-
-position:fixed;
-
-width:250px;
-
-height:250px;
-
-border-radius:50%;
-
-pointer-events:none;
-
-background:
-
-radial-gradient(
-
-circle,
-
-rgba(0,229,255,.15),
-
-transparent 70%
-
-);
-
-
-transform:
-translate(-50%,-50%);
-
-z-index:-1;
-
-}
-
-
-
-`;
-
-
-
-document.head.appendChild(
-style
-);
-
-
-
-
-
-
-
-
-
-// ========================================
-// PAGE LOAD ANIMATION
-// ========================================
-
-
-window.addEventListener(
-
-"load",
-
-()=>{
-
-
-document.body.style.opacity="1";
-
-
-}
-
-);
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ----------------------------------------------------------
+     1. Typing effect for hero role line
+  ---------------------------------------------------------- */
+  const roles = [
+    'BCA Student',
+    'Front-end Enthusiast',
+    'HTML & CSS Learner',
+    'Aspiring Web Developer'
+  ];
+  const typedEl = document.getElementById('typedRole');
+
+  if (typedEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let roleIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    const TYPE_SPEED = 70;
+    const DELETE_SPEED = 40;
+    const HOLD_TIME = 1400;
+
+    function tick() {
+      const current = roles[roleIndex];
+
+      if (!deleting) {
+        charIndex++;
+        typedEl.textContent = current.slice(0, charIndex);
+        if (charIndex === current.length) {
+          deleting = true;
+          setTimeout(tick, HOLD_TIME);
+          return;
+        }
+        setTimeout(tick, TYPE_SPEED);
+      } else {
+        charIndex--;
+        typedEl.textContent = current.slice(0, charIndex);
+        if (charIndex === 0) {
+          deleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+          setTimeout(tick, 300);
+          return;
+        }
+        setTimeout(tick, DELETE_SPEED);
+      }
+    }
+    tick();
+  } else if (typedEl) {
+    typedEl.textContent = roles[0];
+  }
+
+  /* ----------------------------------------------------------
+     2. Mobile nav toggle
+  ---------------------------------------------------------- */
+  const navToggle = document.getElementById('navToggle');
+  const navTabs = document.getElementById('navTabs');
+
+  if (navToggle && navTabs) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navTabs.classList.toggle('is-open');
+      navToggle.classList.toggle('is-open', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navTabs.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        navTabs.classList.remove('is-open');
+        navToggle.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  /* ----------------------------------------------------------
+     3. Scroll-spy — highlight active tab based on section in view
+  ---------------------------------------------------------- */
+  const sections = document.querySelectorAll('main section[id]');
+  const tabs = document.querySelectorAll('.tab');
+
+  const setActiveTab = (id) => {
+    tabs.forEach(tab => {
+      tab.classList.toggle('is-active', tab.dataset.tab === id);
+    });
+  };
+
+  if ('IntersectionObserver' in window && sections.length) {
+    const spyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveTab(entry.target.id);
+        }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+
+    sections.forEach(section => spyObserver.observe(section));
+  }
+
+  /* ----------------------------------------------------------
+     4. Reveal-on-scroll for cards & panels
+  ---------------------------------------------------------- */
+  const revealTargets = document.querySelectorAll(
+    '.skillfile, .projectcard, .infocard, .contact__form, .contact__card, .about__copy'
+  );
+  revealTargets.forEach(el => el.classList.add('reveal'));
+
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealTargets.forEach(el => revealObserver.observe(el));
+  } else {
+    revealTargets.forEach(el => el.classList.add('is-visible'));
+  }
+
+  /* ----------------------------------------------------------
+     5. Animate skill meters when they scroll into view
+  ---------------------------------------------------------- */
+  const meters = document.querySelectorAll('.meter__fill');
+
+  if ('IntersectionObserver' in window && meters.length) {
+    const meterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const fill = entry.target;
+          const level = fill.dataset.level || 0;
+          fill.style.width = level + '%';
+          meterObserver.unobserve(fill);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    meters.forEach(fill => meterObserver.observe(fill));
+  } else {
+    meters.forEach(fill => { fill.style.width = (fill.dataset.level || 0) + '%'; });
+  }
+
+  /* ----------------------------------------------------------
+     6. Contact form — lightweight client-side handling
+  ---------------------------------------------------------- */
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+
+  if (form && status) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      if (!name || !email || !message) {
+        status.style.color = '#E5484D';
+        status.textContent = 'Please fill in every field before sending.';
+        return;
+      }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        status.style.color = '#E5484D';
+        status.textContent = 'That email address doesn\'t look right.';
+        return;
+      }
+
+      // No backend connected yet — replace this with a real request
+      // (e.g. fetch to an API or a form service) when ready.
+      status.style.color = '#17A673';
+      status.textContent = `Thanks, ${name}! Your message has been noted locally — connect a backend to send it for real.`;
+      form.reset();
+    });
+  }
+
+  /* ----------------------------------------------------------
+     7. Footer year
+  ---------------------------------------------------------- */
+  const yearEl = document.getElementById('year');
+  if (yearEl) {
+    yearEl.textContent = `© ${new Date().getFullYear()}`;
+  }
+
+});
