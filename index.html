@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aayush Shrestha — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Code-editor style tab navigation -->
+<header class="tabbar" id="tabbar">
+  <div class="tabbar__brand">
+    <span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span>
+    <span class="brand__file">aayush<span class="brand__ext">.dev</span></span>
+  </div>
+
+  <nav class="tabbar__tabs" id="navTabs">
+    <a href="#home" class="tab is-active" data-tab="home">home<span class="tab__ext">.html</span><i class="tab__unsaved"></i></a>
+    <a href="#about" class="tab" data-tab="about">about<span class="tab__ext">.css</span><i class="tab__unsaved"></i></a>
+    <a href="#skills" class="tab" data-tab="skills">skills<span class="tab__ext">.js</span><i class="tab__unsaved"></i></a>
+    <a href="#projects" class="tab" data-tab="projects">projects<span class="tab__ext">.html</span><i class="tab__unsaved"></i></a>
+    <a href="#contact" class="tab" data-tab="contact">contact<span class="tab__ext">.md</span><i class="tab__unsaved"></i></a>
+  </nav>
+
+  <button class="tabbar__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero__inner">
+
+      <div class="hero__text">
+        <p class="eyebrow">// welcome to my portfolio</p>
+        <h1 class="hero__title">
+          <span class="line">Hi, I'm</span>
+          <span class="line hero__name">Aayush Shrestha</span>
+        </h1>
+        <p class="hero__role">
+          <span id="typedRole"></span><span class="cursor" aria-hidden="true">|</span>
+        </p>
+        <p class="hero__desc">
+          BCA student building a solid foundation in front-end development —
+          currently focused on writing clean, semantic HTML and thoughtful CSS.
+        </p>
+        <div class="hero__cta">
+          <a href="#projects" class="btn btn--primary">View Projects</a>
+          <a href="#contact" class="btn btn--ghost">Get In Touch</a>
+        </div>
+      </div>
+
+      <div class="hero__panel" aria-hidden="true">
+        <div class="terminal">
+          <div class="terminal__bar">
+            <span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span>
+            <span class="terminal__title">about-me.js</span>
+          </div>
+          <pre class="terminal__body"><code><span class="tk-kw">const</span> <span class="tk-var">developer</span> = {
+  <span class="tk-key">name</span>: <span class="tk-str">"Aayush Shrestha"</span>,
+  <span class="tk-key">degree</span>: <span class="tk-str">"BCA"</span>,
+  <span class="tk-key">skills</span>: [<span class="tk-str">"HTML"</span>, <span class="tk-str">"CSS"</span>],
+  <span class="tk-key">status</span>: <span class="tk-str">"open to opportunities"</span>,
+  <span class="tk-key">learning</span>: <span class="tk-bool">true</span>
+};</code></pre>
+        </div>
+        <div class="tagfloat tagfloat--1">&lt;/&gt; HTML</div>
+        <div class="tagfloat tagfloat--2">{ } CSS</div>
+      </div>
+
+    </div>
+    <a href="#about" class="scrollcue" aria-label="Scroll to about section"><span></span></a>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <p class="section__eyebrow">01 — about.css</p>
+    <h2 class="section__title">A little about me</h2>
+
+    <div class="about__grid">
+      <div class="about__copy">
+        <p>
+          I'm Aayush, a Bachelor of Computer Applications (BCA) student with a genuine
+          interest in how the web is built. I like the discipline of HTML — structuring
+          content so it means something — and the craft of CSS — making that structure
+          feel considered and alive.
+        </p>
+        <p>
+          I'm early in my journey, and this portfolio itself is one of my ongoing
+          practice projects: a hand-built page using nothing but
+          <code>index.html</code>, <code>style.css</code> and <code>main.js</code>.
+        </p>
+      </div>
+
+      <aside class="infocard" aria-label="Quick facts">
+        <div class="infocard__row">
+          <span class="infocard__label">name</span>
+          <span class="infocard__value">Aayush Shrestha</span>
+        </div>
+        <div class="infocard__row">
+          <span class="infocard__label">degree</span>
+          <span class="infocard__value">BCA (Bachelor of Computer Applications)</span>
+        </div>
+        <div class="infocard__row">
+          <span class="infocard__label">focus</span>
+          <span class="infocard__value">Front-end Fundamentals</span>
+        </div>
+        <div class="infocard__row">
+          <span class="infocard__label">status</span>
+          <span class="infocard__value"><span class="pulse"></span> Actively learning</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section section--alt" id="skills">
+    <p class="section__eyebrow">02 — skills.js</p>
+    <h2 class="section__title">What I work with</h2>
+    <p class="section__sub">Core tools I use to turn a design into a working page.</p>
+
+    <div class="skills__grid">
+
+      <article class="skillfile">
+        <div class="skillfile__head">
+          <span class="skillfile__icon">&lt;/&gt;</span>
+          <h3>HTML</h3>
+          <span class="skillfile__ext">.html</span>
+        </div>
+        <p class="skillfile__desc">Semantic structure, accessible markup, forms, and clean document architecture.</p>
+        <div class="meter" role="img" aria-label="HTML proficiency: intermediate">
+          <div class="meter__fill" data-level="78"></div>
+        </div>
+      </article>
+
+      <article class="skillfile">
+        <div class="skillfile__head">
+          <span class="skillfile__icon">{ }</span>
+          <h3>CSS</h3>
+          <span class="skillfile__ext">.css</span>
+        </div>
+        <p class="skillfile__desc">Layout with Flexbox &amp; Grid, responsive design, transitions and custom properties.</p>
+        <div class="meter" role="img" aria-label="CSS proficiency: intermediate">
+          <div class="meter__fill" data-level="72"></div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="tagcloud">
+      <span class="tagchip">Responsive Design</span>
+      <span class="tagchip">Flexbox</span>
+      <span class="tagchip">CSS Grid</span>
+      <span class="tagchip">Semantic HTML</span>
+      <span class="tagchip">Git &amp; GitHub</span>
+      <span class="tagchip">Currently learning JavaScript</span>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <p class="section__eyebrow">03 — projects.html</p>
+    <h2 class="section__title">Sample projects</h2>
+    <p class="section__sub">A few practice builds — swap these for your own work anytime.</p>
+
+    <div class="projects__grid">
+
+      <article class="projectcard">
+        <div class="browser">
+          <div class="browser__bar">
+            <span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span>
+          </div>
+          <div class="browser__screen browser__screen--landing">
+            <span class="mock__badge">Landing Page</span>
+            <span class="mock__line mock__line--lg"></span>
+            <span class="mock__line mock__line--sm"></span>
+            <span class="mock__btn"></span>
+          </div>
+        </div>
+        <div class="projectcard__body">
+          <h3>Responsive Landing Page</h3>
+          <p>A single-page site with a hero, feature grid, and footer, built mobile-first with pure CSS.</p>
+          <div class="projectcard__tags">
+            <span class="tagchip tagchip--sm">HTML</span>
+            <span class="tagchip tagchip--sm">CSS Grid</span>
+            <span class="tagchip tagchip--sm">Responsive</span>
+          </div>
+          <div class="projectcard__links">
+            <a href="#" class="link">Live Demo →</a>
+            <a href="#" class="link link--muted">Source Code</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="projectcard">
+        <div class="browser">
+          <div class="browser__bar">
+            <span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span>
+          </div>
+          <div class="browser__screen browser__screen--cards">
+            <span class="mock__badge">To-Do UI</span>
+            <span class="mock__card"></span>
+            <span class="mock__card"></span>
+            <span class="mock__card"></span>
+          </div>
+        </div>
+        <div class="projectcard__body">
+          <h3>To-Do List Interface</h3>
+          <p>A static to-do list layout exploring checkbox styling, hover states, and card-based structure.</p>
+          <div class="projectcard__tags">
+            <span class="tagchip tagchip--sm">HTML</span>
+            <span class="tagchip tagchip--sm">Flexbox</span>
+            <span class="tagchip tagchip--sm">UI Practice</span>
+          </div>
+          <div class="projectcard__links">
+            <a href="#" class="link">Live Demo →</a>
+            <a href="#" class="link link--muted">Source Code</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="projectcard">
+        <div class="browser">
+          <div class="browser__bar">
+            <span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span>
+          </div>
+          <div class="browser__screen browser__screen--blog">
+            <span class="mock__badge">Blog Layout</span>
+            <span class="mock__line mock__line--md"></span>
+            <span class="mock__line mock__line--sm"></span>
+            <span class="mock__line mock__line--sm"></span>
+          </div>
+        </div>
+        <div class="projectcard__body">
+          <h3>Personal Blog Layout</h3>
+          <p>A clean article template focused on readable typography, spacing rhythm and a simple sidebar.</p>
+          <div class="projectcard__tags">
+            <span class="tagchip tagchip--sm">HTML</span>
+            <span class="tagchip tagchip--sm">Typography</span>
+            <span class="tagchip tagchip--sm">CSS</span>
+          </div>
+          <div class="projectcard__links">
+            <a href="#" class="link">Live Demo →</a>
+            <a href="#" class="link link--muted">Source Code</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--alt" id="contact">
+    <p class="section__eyebrow">04 — contact.md</p>
+    <h2 class="section__title">Let's connect</h2>
+    <p class="section__sub">Open to internships, junior front-end roles, and collaborative projects.</p>
+
+    <div class="contact__grid">
+      <form class="contact__form" id="contactForm" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Say hello..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--block">Send Message</button>
+        <p class="field__status" id="formStatus" role="status"></p>
+      </form>
+
+      <aside class="contact__card">
+        <div class="infocard__row">
+          <span class="infocard__label">email</span>
+          <span class="infocard__value">aayush.shrestha@example.com</span>
+        </div>
+        <div class="infocard__row">
+          <span class="infocard__label">location</span>
+          <span class="infocard__value">Nepal</span>
+        </div>
+        <div class="infocard__row">
+          <span class="infocard__label">social</span>
+          <span class="infocard__value">
+            <a href="#" class="social" aria-label="GitHub">GitHub</a> ·
+            <a href="#" class="social" aria-label="LinkedIn">LinkedIn</a>
+          </span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>designed &amp; built by Aayush Shrestha — compiled with <code>index.html</code>, <code>style.css</code> &amp; <code>main.js</code></p>
+  <p class="footer__year" id="year"></p>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
