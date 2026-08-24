@@ -1,4 +1,4 @@
-# Portfolio (2025)
+# Aayush Profile
 
 Personal portfolio site: project case studies, lightweight 3D and shader demos, bilingual copy (English and German).
 
