@@ -9,6 +9,8 @@ export const usePreloader = () => {
   const resourcesProgress = ref(0);
 
   onMounted(() => {
+    resourcesProgress.value = resources.loaded / resources.toLoad;
+
     resources.on("progress", (newProgress) => {
       resourcesProgress.value = newProgress;
     });

@@ -43,12 +43,12 @@ class Resources extends EventEmitter<{
       if (source.type === "gltfModel") {
         this.loaders.gltfLoader.load(source.path, (file) => {
           this.sourceLoaded(source, file);
-        });
+        }, undefined, () => this.sourceFailed(source));
       } else if (source.type === "texture") {
         this.loaders.textureLoader.load(source.path, (file: Texture) => {
           file.colorSpace = SRGBColorSpace;
           this.sourceLoaded(source, file);
-        });
+        }, undefined, () => this.sourceFailed(source));
       }
     }
   }
@@ -64,6 +64,19 @@ class Resources extends EventEmitter<{
       this.isReady = true;
       this.emit("ready");
       this.log("All resources loaded");
+    }
+  }
+
+  sourceFailed(source: { name: string; type: string; path: string }) {
+    this.log(`Failed to load ${source.name} from ${source.path}`);
+    this.loaded++;
+
+    this.emit("progress", this.loaded / this.toLoad);
+
+    if (this.loaded === this.toLoad) {
+      this.isReady = true;
+      this.emit("ready");
+      this.log("All resources processed");
     }
   }
 
